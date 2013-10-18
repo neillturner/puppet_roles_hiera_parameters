@@ -39,8 +39,4 @@ This will also be able to run in puppet master, just need to decide how to set t
 or the hostname.  
 
 NOTE: This still need so additional error checking and more testing.  	
-=======
-puppet_roles_hiera_parameters
-=============================
 
-Design Pattern to implement in puppet roles like chef and to separate class parameters to a hiera hierarchy like chef    
