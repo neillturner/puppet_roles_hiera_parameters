@@ -4,7 +4,8 @@ This is a design pattern to implement roles like Chef and separate class paramet
 a parameter hierachy also like chef.
 
 This supports two ways of setting roles.
-1. Set a single role_name in Facter for the server.
+
+Set a single role_name in Facter for the server.
 
  -set the role_name in Facter 
  -the role class gets called from the site.pp and passes the role_name. 
@@ -20,7 +21,7 @@ This supports two ways of setting roles.
  -role parameters can be stored in the roles/%{role_name} and can be overriden for parameter 
 values for the node,class or module. parameters that are common to all roles can be stored in the common file  
 
-2. Set multiple roles in the  nodes/%{hostname} file
+Set multiple roles in the  nodes/%{hostname} file
 
  -set multiple roles in the  nodes/%{hostname} file
  
