@@ -8,25 +8,34 @@ This supports two ways of setting roles.
  -set the role_name in Facter 
  -the role class gets called from the site.pp and passes the role_name. 
  -the role::<role_name> class is called and the classes executed
- -the class parameters are resolved in the hiera hierachy: 
+ -the class parameters are resolved in the hiera hierachy:
+ 
        nodes/%{hostname}
-       classes/%{calling_class}
-       modules/%{module_name}
-       roles/%{role_name}
+       classes/%{calling_class}	   
+       modules/%{module_name}	   
+       roles/%{role_name}	   
        common 
+	   
  -role parameters can be stored in the roles/%{role_name} and can be overriden for parameter 
 values for the node,class or module. parameters that are common to all roles can be stored in the common file  
 
 2. Set multiple roles in the  nodes/%{hostname} file
+
  -set multiple roles in the  nodes/%{hostname} file
+ 
  -the role class gets called from the site.pp and passes the node_name.
- -the role class gets the role_names from the nodes/<node_name> file 
+ 
+ -the role class gets the role_names from the nodes/<node_name> file
+ 
  -the role::<role_name> classes is called and the classes executed
+ 
  -the class parameters are resolved in the hiera hierachy if not coded in the role::<role_name> class : 
-       nodes/%{hostname}
-       classes/%{calling_class}
-       modules/%{module_name}
+ 
+       nodes/%{hostname}	   
+       classes/%{calling_class}	   
+       modules/%{module_name}	   
        common 
+	   
  -role class parameters can be stored in the role::<role_name> class but cannot be overriden with parameters 
   from the hiera parameter hierachy  
 
