@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Puppet Roles and Hiera Parameter Hierachy
 
 This is a design pattern to implement roles like Chef and separate class parameters into 
@@ -39,3 +40,9 @@ This will also be able to run in puppet master, just need to decide how to set t
 or the hostname.  
 
 NOTE: This still need so additional error checking and more testing.  	
+=======
+puppet_roles_hiera_parameters
+=============================
+
+Design Pattern to implement in puppet roles like chef and to separate class parameters to a hiera hierarchy like chef    
+>>>>>>> 371802c662813a45b1ad95a436bceb761e8b3d91
