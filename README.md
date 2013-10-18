@@ -5,6 +5,7 @@ a parameter hierachy also like chef.
 
 This supports two ways of setting roles.
 1. Set a single role_name in Facter for the server.
+
  -set the role_name in Facter 
  -the role class gets called from the site.pp and passes the role_name. 
  -the role::<role_name> class is called and the classes executed
