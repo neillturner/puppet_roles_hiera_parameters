@@ -4,7 +4,6 @@ This is a design pattern to implement roles like Chef and separate class paramet
 a parameter hierachy also like chef.
 
 Set up to 4 role_names in Facter for the server.
-
  -set up to 4 role_names in Facter 
  -the role class gets called from the site.pp 
  -the role::<role_name> classes called for each role and the classes executed
@@ -19,6 +18,7 @@ Set up to 4 role_names in Facter for the server.
        common 
 	   
  -role parameters can be stored in the roles/%{role_name} and can be overriden for parameter 
+
 values for the node,roles, module or common. parameters that are common to all roles can be stored in the common file  
 
 This can be tested by running in masterless puppet
