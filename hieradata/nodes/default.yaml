@@ -1,4 +1,2 @@
 ---
-roles:
-  - 'role::base'
-  - 'role::webserver'
+apache::xxxxx   yyyyyyy
