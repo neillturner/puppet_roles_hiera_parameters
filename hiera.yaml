@@ -1,0 +1,12 @@
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: /var/local/pocketknife/hieradata
+:hierarchy:
+  - "nodes/%{hostname}"
+  - "classes/%{calling_class}"
+  - "modules/%{module_name}"
+  - "roles/%{role_name}"
+  - common
+  
