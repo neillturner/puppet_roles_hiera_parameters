@@ -28,6 +28,12 @@ class role {
   } else {
      $role4 = ''     
   }
+  if defined('role_name3') {
+     $role3 = "role::"+$role_name3
+  }
+  if defined('role_name4') {
+     $role4 = "role::"+$role_name4
+  }
   $roles = [ $role1, $role2, $role3, $role4] 
   # Require base first in case it does required setup
   if member($roles, 'role::base') {
