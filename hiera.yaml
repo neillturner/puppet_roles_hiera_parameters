@@ -5,8 +5,11 @@
   :datadir: /var/local/pocketknife/hieradata
 :hierarchy:
   - "nodes/%{hostname}"
-  - "classes/%{calling_class}"
+  - "roles/%{role_name1}"
+  - "roles/%{role_name2}"
+  - "roles/%{role_name3}"
+  - "roles/%{role_name4}"	
   - "modules/%{module_name}"
-  - "roles/%{role_name}"
+
   - common
   
