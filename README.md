@@ -23,8 +23,8 @@ values for the node,roles, module or common. parameters that are common to all r
 
 This can be tested by running in masterless puppet
   
-    export FACTER_role_name1=`echo base`
-    export FACTER_role_name2=`echo webserver`
+    export FACTER_role_name1=base
+    export FACTER_role_name2=webserver
     puppet apply --modulepath ./modules manifests/site.pp
 	
 This will also be able to run in puppet master, just need to decide how to set the  FACTER_role_nameX 
