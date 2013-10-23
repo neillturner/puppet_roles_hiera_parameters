@@ -5,6 +5,9 @@
 #         export FACTER_role_name2=webserver
 #
 node default {
+  Exec {
+     path => ["/bin", "/sbin", "/usr/bin", "/usr/sbin"],
+  }
   class { 'role' : } 
 } 
 
