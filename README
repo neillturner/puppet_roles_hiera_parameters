@@ -29,7 +29,6 @@ This can be tested by running in masterless puppet
     puppet apply --modulepath ./modules manifests/site.pp
 	
 This will also be able to run in puppet master, just need to decide how to set the  FACTER_role_nameX
-
     export FACTER_role_name1=`echo base`
     export FACTER_role_name2=`echo webserver`
     puppet agent -t --servername=puppetmaster.mycompany.com -v -d  
