@@ -1,13 +1,17 @@
-# Puppet Roles and Hiera Parameter Hierachy
+Puppet Roles and Hiera Parameter Hierachy
 
 This is a design pattern to implement roles like Chef and to separate class parameters into 
 a parameter hierachy also like chef.
 
+The roles can be either set on the individual server or on the puppetmaster master in the hieradata. 
+If set in the puppetmaster hierdata this takes precedence. 
+
 Set up to 4 role_names in Facter for the server.
- -set up to 4 role_names in Facter 
+ -either set up to 4 role_names in Facter on the server set the Facter variable role_name1 to role_name4 
+ -or on the puppetmaster set the roles in the nodes\<hostname>.yaml file using values role::role_name1 to role::role_name4  
  -the role class gets called from the site.pp 
  -the role::<role_name> classes called for each role and the classes executed
- (or a direct module prefix can be specified to call directly the prefix-<role_name> module
+ (or a direct module prefix can be specified to call directly the prefix-<role_name> module)
  -the class parameters are resolved in the hiera hierachy:
  
        nodes/%{hostname}
@@ -29,11 +33,17 @@ This can be tested by running in masterless puppet
     puppet apply --modulepath ./modules manifests/site.pp
 	
 This will also be able to run in puppet master, just need to decide how to set the  FACTER_role_nameX
+
     export FACTER_role_name1=`echo base`
     export FACTER_role_name2=`echo webserver`
     puppet agent -t --servername=puppetmaster.mycompany.com -v -d  
- 
 
+Or set the the roles on the puppetmaster in the nodes\<hostname>.yaml file using values role::role_name1 to role::role_name4 and then run  	
+    puppet agent -t --servername=puppetmaster.mycompany.com -v -d 
+
+ORDERING OF ROLE EXECUTION
+ The base role is always run first but by default the other roles are run by puppet IN ANY ORDER.
+ If you want the other roles run in order role2,role3,role4 then add to the puppet command the option   --ordering=manifest 
 
 EXAMPLE MANIFEST site.pp
 
