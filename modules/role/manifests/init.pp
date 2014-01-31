@@ -33,7 +33,7 @@
 class role($prefix  = undef  )
  { 
   include stdlib
--  if $role_name1 != '' and $prefix == undef {
+  if $role_name1 != '' and $prefix == undef {
      $role1 = "role::${role_name1}"
    } elsif $role_name1 != '' {
       $role1 = "${prefix}-${role_name1}"
