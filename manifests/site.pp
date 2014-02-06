@@ -25,9 +25,9 @@ node default {
         $role_name3 = hiera('role::role_name3','')
   	    $role_name4 = hiera('role::role_name4','')
 	 }	
-     class { 'role': }
+    class { 'role': }
 	# Or to do Direct Module Prefix 
-	#class { 'role' : prefix => 'mycompany' } 
+	class { 'role' : prefix => 'mycompany' } 
  } 
 
 
