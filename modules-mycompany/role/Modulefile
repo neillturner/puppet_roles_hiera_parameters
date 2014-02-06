@@ -1,0 +1,9 @@
+name    'neillturner-role'
+version '0.0.4'
+source 'https://github.com/neillturner/puppet_roles_hiera_parameters.git'
+author 'neillturner'
+license 'Apache License, Version 2.0'
+summary 'Puppet Module for Roles'
+description 'Module to implement roles and parameters in hiera data'
+project_page 'https://github.com/neillturner/puppet_roles_hiera_parameters'
+
