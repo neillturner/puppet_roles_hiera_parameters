@@ -96,7 +96,7 @@ This can be tested by running in masterless puppet
   
     export FACTER_role_name1=base
     export FACTER_role_name2=webserver
-    puppet apply --modulepath ./modules manifests/site.pp
+    puppet apply --modulepath "/mypuppet_repo_dir/modules:/mypuppet_repo_dir/modules-mycompany" /mypuppet_repo_dir/manifests/site.pp
 
 also an environment can be specified on the puppet apply command so that parameters values for different environments
 can be resolved from the hiera data.  
