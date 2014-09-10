@@ -12,7 +12,9 @@
 # MODULE CALLING 
 # This will result in either calls the role::role_nameX class
 # or
-#  if the prefix parameter is set then it will call directly the module for the role called prefix-role. 
+#  if the prefix parameter is set then it will call directly the module for the role called prefix_role. 
+# NOTE: separator has been changed from dash to underscore. 
+#       If you want to maintain compatiability with previous version set the separator variable to dash.   
 #
 # MODULE NAMING
 # There should be a separation of Library Modules from custom modules or classes.  
@@ -30,34 +32,34 @@
 # This allows values to be set for the particular environment.
 # Also common parameters can be set in the common.yaml file which can also be specifed by environment.
 #
-class role($prefix  = undef  )
+class role($prefix  = undef, $separator = '_' )
  { 
   include stdlib
   if $role_name1 != '' and $prefix == undef {
      $role1 = "role::${role_name1}"
    } elsif $role_name1 != '' {
-      $role1 = "${prefix}-${role_name1}"
+      $role1 = "${prefix}${separator}${role_name1}"
    } else { 
   	 $role1 = 'role::base' 
   }
   if $role_name2 != '' and $prefix == undef {
       $role2 = "role::${role_name2}"
    } elsif $role_name2 != '' { 
-     $role2 = "${prefix}-${role_name2}"  
+     $role2 = "${prefix}${separator}${role_name2}"  
    } else { 
  	 $role2 = '' 
   }   
   if $role_name3 != '' and $prefix == undef  {
       $role3 = "role::${role_name3}"
    } elsif $role_name3 != '' { 
-     $role3 = "${prefix}-${role_name3}"	  
+     $role3 = "${prefix}${separator}${role_name3}"	  
    } else { 
  	 $role3 = '' 
   }  
   if $role_name4 != '' and $prefix == undef  {
      $role4 = "role::${role_name4}"
    } elsif $role_name4 != '' { 
-     $role4 = "${prefix}-${role_name4}" 
+     $role4 = "${prefix}${separator}${role_name4}" 
    } else { 
  	 $role4 = '' 
   }
@@ -75,8 +77,8 @@ class role($prefix  = undef  )
   if member($roles, 'role::base') {
     require role::base
   }
-  if $prefix != undef and member($roles, "${prefix}-base") {
-    $base_module = "${prefix}-base"
+  if $prefix != undef and member($roles, "${prefix}${separator}base") {
+    $base_module = "${prefix}${separator}base"
     require $base_module
   }
   include $roles

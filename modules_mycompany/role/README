@@ -20,7 +20,10 @@ SETTING THE ROLES
 MODULE CALLING 
  This will result in either calls the role::role_nameX class
  or
-  if the prefix parameter is set then it will call directly the init.pp class of the module for the role called prefix-role. 
+  if the prefix parameter is set then it will call directly the init.pp class of the module for the role called prefix_role. 
+  NOTE: separator has been changed from dash to underscore. 
+       If you want to maintain compatiability with previous version set the separator variable to dash.   
+
 
 MODULE NAMING
  There should be a separation of library modules from custom modules or classes.  
@@ -70,7 +73,7 @@ ADDITIONAL FILES REQUIRED
 #  
 #  For example:
 #   If prefix is set to mycompany 
-#        it will go directly to the mycompany-base  module and runthe init class
+#        it will go directly to the mycompany_base  module and runthe init class
 #   Otherwise it will call the class role::base      
 #
 node default {
@@ -81,14 +84,16 @@ node default {
      $hiera_role1 = hiera('role::role_name1','')
      if $hiera_role1 != '' {
         notify {"*** Found heira role::role_name1 value ${hiera_role1} ignoring all facter role values ***": }
-	    $role_name1 = hiera('role::role_name1','')
+	$role_name1 = hiera('role::role_name1','')
         $role_name2 = hiera('role::role_name2','')
         $role_name3 = hiera('role::role_name3','')
-  	    $role_name4 = hiera('role::role_name4','')
-	 }	
+  	$role_name4 = hiera('role::role_name4','')
+     }	
      class { 'role': }
-	# Or to do Direct Module Prefix 
-	#class { 'role' : prefix => 'mycompany' } 
+     # Or to do Direct Module Prefix 
+     #class { 'role' : prefix => 'mycompany' }
+     # Or to maintain compatibility with previous version that used a dash
+     #class { 'role' : prefix => 'mycompany', separator => '-'  } 
  }    
   
 TESTING 
@@ -96,7 +101,7 @@ This can be tested by running in masterless puppet
   
     export FACTER_role_name1=base
     export FACTER_role_name2=webserver
-    puppet apply --modulepath "/mypuppet_repo_dir/modules:/mypuppet_repo_dir/modules-mycompany" /mypuppet_repo_dir/manifests/site.pp
+    puppet apply --modulepath ./modules manifests/site.pp
 
 also an environment can be specified on the puppet apply command so that parameters values for different environments
 can be resolved from the hiera data.  
