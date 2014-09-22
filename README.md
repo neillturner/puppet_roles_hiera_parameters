@@ -54,6 +54,7 @@ for example
     export FACTER_role_name2=webserver::test
     
 This will case the webserver::test to be called 
+
 NOTE: To resolve parameter values from hier the yaml files needs to be called webserver::test.yaml which is not supported 
 on windows. (a workaround could be to store the parameters for webserver::test in the base.yaml).    
   
