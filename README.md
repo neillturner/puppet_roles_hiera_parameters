@@ -13,10 +13,13 @@ Setting the Roles
 =================
 
 On the individual server set the Facter variable role_name1 to role_name4. For example:
+
       export FACTER_role_name1=base
       export FACTER_role_name2=webserver 
+      
 On the puppetmaster set the roles in the nodes\<hostname>.yaml file using values role::role_name1 to role::role_name4 
 For example file hieradata/nodes/ubuntu-server.yaml contains
+
       ---
       role::role_name1:  base
       role::role_name2:  webserver
@@ -30,20 +33,26 @@ This separates them from standard library modules that can be specified using pu
 from puppetforge or github which should then NOT be customized. 
 
 To achieve this set the Direct Module Prefix in the site manifest
+
      class { 'role' : prefix => 'mycompany' }
+     
 This will result in calls to modules mycompany_base and mycompany_webserver. 
-NOTE: For compatibility with previous versions of role you can set the separator char to underscore in the site manifest  
+NOTE: For compatibility with previous versions of role you can set the separator char to underscore in the site manifest 
+
      class { 'role' : prefix => 'mycompany', separator => '-'  }
 
 Module Calling
 ==============
 
-Settingthe roles to base and webserver will result in calls to the modules called base and webserver and running the init.pp manifest. 
-It is possible to specify a class to called different to the init.pp by setting the role to 
-    module::manifest  
+Settingthe roles to base and webserver will result in calls to the modules called base and webserver and running the init.pp manifest. It is possible to specify a class to called different to the init.pp by setting the role to 
+
+    module::manifest 
+    
 for example   
+
     export FACTER_role_name1=base
     export FACTER_role_name2=webserver::test
+    
 This will case the webserver::test to be called 
 NOTE: To resolve parameter values from hier the yaml files needs to be called webserver::test.yaml which is not supported 
 on windows. (a workaround could be to store the parameters for webserver::test in the base.yaml).    
@@ -65,8 +74,7 @@ Also common parameters can be set in the common.yaml file which can also be spec
 Sample Puppet Repository
 ========================
 
-There is a sample puppet repository at https://github.com/neillturner/puppet_repo that implements this role functionality and includes the
-following additional files: 
+There is a sample puppet repository at https://github.com/neillturner/puppet_repo that implements this role functionality and includes the following additional files: 
 
 
 hiera.yaml
@@ -121,6 +129,7 @@ Testing
 =======
 
 This can be tested by running in masterless puppet
+
     export FACTER_role_name1=base
     export FACTER_role_name2=webserver
     puppet apply --modulepath ./modules manifests/site.pp
@@ -129,7 +138,8 @@ also an environment can be specified on the puppet apply command so that paramet
 can be resolved from the hiera data.  
 	
 This will also be able to run in puppet master:
-   if the hostname is ubuntu-server set the roles in the hiera file hieradata/nodes/ubuntu-server.yaml on the puppetmaster
+if the hostname is ubuntu-server set the roles in the hiera file hieradata/nodes/ubuntu-server.yaml on the puppetmaster
+
     ---
     role::role_name1:  'base'  
     role::role_name2:  'webserver' 
