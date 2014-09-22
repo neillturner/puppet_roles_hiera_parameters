@@ -1,14 +1,13 @@
 {
   "source": "https://github.com/neillturner/puppet_roles_hiera_parameters.git",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "Apache License, Version 2.0",
-  "description": "Module to implement roles and parameters in hiera data",
+  "description": "Module to implement roles and parameters in custom facts or hiera data",
   "author": "neillturner",
   "project_page": "https://github.com/neillturner/puppet_roles_hiera_parameters",
   "name": "neillturner-role",
   "summary": "Puppet Module for Roles",
   "dependencies": [
-
   ],
   "types": [
 
