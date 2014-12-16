@@ -20,13 +20,13 @@ class role($prefix  = undef, $separator = '_' )
       if $role_manifest2 == '' {
         $role2 = "${role_name2}"
       } else {
-        $role2 = "$(role_name2}::${role_manifest2}"
+        $role2 = "${role_name2}::${role_manifest2}"
       }  
   } elsif $role_name2 != '' {
       if $role_manifest2 == '' {
         $role2 = "${prefix}${separator}${role_name2}"
       } else {
-        $role2 = "${prefix}${separator}$(role_name2}::${role_manifest2}"
+        $role2 = "${prefix}${separator}${role_name2}::${role_manifest2}"
       }        
   } else { 
       $role2 = '' 
