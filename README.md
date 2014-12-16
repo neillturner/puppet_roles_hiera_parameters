@@ -44,19 +44,19 @@ NOTE: For compatibility with previous versions of role you can set the separator
 Module Calling
 ==============
 
-Settingthe roles to base and webserver will result in calls to the modules called base and webserver and running the init.pp manifest. It is possible to specify a class to called different to the init.pp by setting the role to 
-
-    module::manifest 
+Settingthe roles to base and webserver will result in calls to the modules called base and webserver and running the init.pp manifest. It is possible to specify a class to called different to the init.pp by setting
+the role_manifestX to the manifest name.
     
 for example   
 
     export FACTER_role_name1=base
-    export FACTER_role_name2=webserver::test
+    export FACTER_role_name2=webserver
+    export FACTOR=role_manifest2=test
     
 This will case the webserver::test to be called 
 
-NOTE: To resolve parameter values from hiera the yaml files needs to be called webserver::test.yaml which is not supported 
-on windows. (a workaround could be to store the parameters for webserver::test in the base.yaml).    
+NOTE: The parameter values from hiera the yaml files still uses the webserver.yaml file however class parameters need to be 
+    webserver::test::parm.    
   
 Role Ordering
 =============
@@ -118,6 +118,10 @@ site.pp (or whatever the initial manifest file is called)
         $role_name2 = hiera('role::role_name2','')
         $role_name3 = hiera('role::role_name3','')
         $role_name4 = hiera('role::role_name4','')
+        $role_manifest1 = hiera('role::role_manifest1','')
+        $role_manifest2 = hiera('role::role_manifest2','')
+        $role_manifest3 = hiera('role::role_manifest3','')
+  	$role_manifest4 = hiera('role::role_manifest4','')        
      }	
      class { 'role': }
      # Or to do Direct Module Prefix 
