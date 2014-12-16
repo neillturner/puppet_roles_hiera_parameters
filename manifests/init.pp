@@ -17,15 +17,20 @@ class role($prefix  = undef, $separator = '_' )
      $role1 = "$(role1}::${role_manifest1}"
   }  
   if $role_name2 != '' and $prefix == undef {
-      $role2 = "${role_name2}"
-   } elsif $role_name2 != '' { 
-     $role2 = "${prefix}${separator}${role_name2}"  
-   } else { 
- 	 $role2 = '' 
+      if $role_manifest2 == '' {
+        $role2 = "${role_name2}"
+      } else {
+        $role2 = "$(role_name2}::${role_manifest2}"
+      }  
+  } elsif $role_name2 != '' {
+      if $role_manifest2 == '' {
+        $role2 = "${prefix}${separator}${role_name2}"
+      } else {
+        $role2 = "${prefix}${separator}$(role_name2}::${role_manifest2}"
+      }        
+  } else { 
+      $role2 = '' 
   } 
-  if $role_manifest2 != '' { 
-     $role2 = "$(role2}::${role_manifest2}"
-  }  
   if $role_name3 != '' and $prefix == undef  {
       $role3 = "${role_name3}"
    } elsif $role_name3 != '' { 
