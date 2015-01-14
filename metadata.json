@@ -7,5 +7,5 @@
   "project_page": "https://github.com/neillturner/puppet_roles_hiera_parameters",
   "issues_url": "https://github.com/neillturner/puppet_roles_hiera_parameters/issues",
   "name": "neillturner-role",
-  "summary": "Puppet Module for Roles"
+  "summary": "Puppet Module for Roles "
 }
