@@ -6,36 +6,5 @@
   "summary": "Module to implement roles and parameters in custom facts or hiera data",
   "source": "https://github.com/neillturner/puppet_roles_hiera_parameters.git",
   "project_page": "https://github.com/neillturner/puppet_roles_hiera_parameters",
-  "issues_url": "https://github.com/neillturner/puppet_roles_hiera_parameters/issues",
-  "operatingsystem_support": [
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "5",
-        "6"
-      ]
-    },
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "5",
-        "6"
-      ]
-    },
-    {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "5",
-        "6"
-      ]
-    },
-    {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [
-        "10.04",
-        "12.04",
-        "14.04"
-      ]
-    }
-  ]
+  "issues_url": "https://github.com/neillturner/puppet_roles_hiera_parameters/issues"
 }
