@@ -121,7 +121,7 @@ site.pp (or whatever the initial manifest file is called)
         $role_manifest1 = hiera('role::role_manifest1','')
         $role_manifest2 = hiera('role::role_manifest2','')
         $role_manifest3 = hiera('role::role_manifest3','')
-  	$role_manifest4 = hiera('role::role_manifest4','')        
+        $role_manifest4 = hiera('role::role_manifest4','')
       }
       class { 'role': }
       # Or to do Direct Module Prefix
