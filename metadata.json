@@ -4,6 +4,7 @@
   "author": "neillturner",
   "license": "Apache-2.0",
   "summary": "Module to implement roles and parameters in custom facts or hiera data",
+  "description": "Module to manage roles",
   "source": "https://github.com/neillturner/puppet_roles_hiera_parameters.git",
   "project_page": "https://github.com/neillturner/puppet_roles_hiera_parameters",
   "issues_url": "https://github.com/neillturner/puppet_roles_hiera_parameters/issues",
