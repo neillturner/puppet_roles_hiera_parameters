@@ -24,11 +24,11 @@ For example file hieradata/nodes/ubuntu-server.yaml contains
       role::role_name1:  base
       role::role_name2:  webserver
 
-Custom Module Name Prefix
-=========================
+Application Module Name Prefix
+==============================
 
-A common design pattern is to prefix your custom puppet module names with a company name prefix.
-This allows for separation of library modules from custom modules or classes.  
+A common design pattern is to prefix your application puppet module names with a company name prefix.
+This allows for separation of library modules from application modules or classes.
 This separates them from standard library modules that can be specified using puppet librarian or downloaded 
 from puppetforge or github which should then NOT be customized. 
 
@@ -44,7 +44,7 @@ NOTE: For compatibility with previous versions of role you can set the separator
 Module Calling
 ==============
 
-Settingthe roles to base and webserver will result in calls to the modules called base and webserver and running the init.pp manifest. It is possible to specify a class to called different to the init.pp by setting
+Setting the roles to base and webserver will result in calls to the modules called base and webserver and running the init.pp manifest. It is possible to specify a class to called different to the init.pp by setting
 the role_manifestX to the manifest name.
     
 for example   
@@ -53,7 +53,7 @@ for example
     export FACTER_role_name2=webserver
     export FACTOR=role_manifest2=test
     
-This will case the webserver::test to be called 
+In this case the webserver::test to be called
 
 NOTE: The parameter values from hiera the yaml files still uses the webserver.yaml file however class parameters need to be 
     webserver::test::parm.    
@@ -107,12 +107,12 @@ site.pp (or whatever the initial manifest file is called)
     #
     #
     node default {
-     Exec {
-         path => ["/bin", "/sbin", "/usr/bin", "/usr/sbin"],
-     }
-     # check if roles defined in node hostname hiera file.
-     $hiera_role1 = hiera('role::role_name1','')
-     if $hiera_role1 != '' {
+      Exec {
+        path => ["/bin", "/sbin", "/usr/bin", "/usr/sbin"],
+      }
+      # check if roles defined in node hostname hiera file.
+      $hiera_role1 = hiera('role::role_name1','')
+      if $hiera_role1 != '' {
         notify {"*** Found heira role::role_name1 value ${hiera_role1} ignoring all facter role values ***": }
         $role_name1 = hiera('role::role_name1','')
         $role_name2 = hiera('role::role_name2','')
@@ -122,13 +122,13 @@ site.pp (or whatever the initial manifest file is called)
         $role_manifest2 = hiera('role::role_manifest2','')
         $role_manifest3 = hiera('role::role_manifest3','')
   	$role_manifest4 = hiera('role::role_manifest4','')        
-     }	
-     class { 'role': }
-     # Or to do Direct Module Prefix 
-     #class { 'role' : prefix => 'mycompany' }
-     # Or to maintain compatibility with previous version that used a dash
-     #class { 'role' : prefix => 'mycompany', separator => '-'  } 
- }    
+      }
+      class { 'role': }
+      # Or to do Direct Module Prefix
+      #class { 'role' : prefix => 'mycompany' }
+      # Or to maintain compatibility with previous version that used a dash
+      #class { 'role' : prefix => 'mycompany', separator => '-'  }
+    }
   
 Testing
 =======
