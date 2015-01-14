@@ -1,11 +1,41 @@
 {
+  "name": "neillturner-role",
   "version": "0.1.1",
-  "license": "Apache-2.0",
-  "description": "Module to implement roles and parameters in custom facts or hiera data",
   "author": "neillturner",
+  "license": "Apache-2.0",
+  "summary": "Module to implement roles and parameters in custom facts or hiera data",
   "source": "https://github.com/neillturner/puppet_roles_hiera_parameters.git",
   "project_page": "https://github.com/neillturner/puppet_roles_hiera_parameters",
   "issues_url": "https://github.com/neillturner/puppet_roles_hiera_parameters/issues",
-  "name": "neillturner-role",
-  "summary": "Puppet Module for Roles "
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    }
+  ]
 }
