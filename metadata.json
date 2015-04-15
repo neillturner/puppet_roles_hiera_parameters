@@ -1,6 +1,6 @@
 {
   "name": "neillturner-role",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "neillturner",
   "license": "Apache-2.0",
   "summary": "Module to implement roles and parameters in custom facts or hiera data",

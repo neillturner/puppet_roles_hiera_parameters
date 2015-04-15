@@ -6,14 +6,14 @@
 class role($prefix  = undef, $separator = '_' )
 {
   include stdlib
-  if $role_name1 != '' and $prefix == undef {
-    if $role_manifest1 == '' {
+  if $role_name1 != undef and $prefix == undef {
+    if $role_manifest1 == undef {
       $role1 = $role_name1
     } else {
       $role1 = "${role_name1}::${role_manifest1}"
     }
-  } elsif $role_name1 != '' {
-    if $role_manifest1 == '' {
+  } elsif $role_name1 != undef {
+    if $role_manifest1 == undef {
       $role1 = "${prefix}${separator}${role_name1}"
     } else {
       $role1 = "${prefix}${separator}${role_name1}::${role_manifest1}"
@@ -21,14 +21,14 @@ class role($prefix  = undef, $separator = '_' )
   } else {
     $role1 = 'base'
   }
-  if $role_name2 != '' and $prefix == undef {
-    if $role_manifest2 == '' {
+  if $role_name2 != undef and $prefix == undef {
+    if $role_manifest2 == undef {
       $role2 = $role_name2
     } else {
       $role2 = "${role_name2}::${role_manifest2}"
     }
-  } elsif $role_name2 != '' {
-    if $role_manifest2 == '' {
+  } elsif $role_name2 != undef {
+    if $role_manifest2 == undef {
       $role2 = "${prefix}${separator}${role_name2}"
     } else {
       $role2 = "${prefix}${separator}${role_name2}::${role_manifest2}"
@@ -36,14 +36,14 @@ class role($prefix  = undef, $separator = '_' )
   } else {
     $role2 = ''
   }
-  if $role_name3 != '' and $prefix == undef  {
-    if $role_manifest3 == '' {
+  if $role_name3 != undef and $prefix == undef  {
+    if $role_manifest3 == undef {
       $role3 = $role_name3
     } else {
       $role3 = "${role_name3}::${role_manifest3}"
     }
-  } elsif $role_name3 != '' {
-    if $role_manifest3 == '' {
+  } elsif $role_name3 != undef {
+    if $role_manifest3 == undef {
       $role3 = "${prefix}${separator}${role_name3}"
     } else {
       $role3 = "${prefix}${separator}${role_name3}::${role_manifest3}"
@@ -51,14 +51,14 @@ class role($prefix  = undef, $separator = '_' )
   } else {
     $role3 = ''
   }
-  if $role_name4 != '' and $prefix == undef  {
-    if $role_manifest4 == '' {
+  if $role_name4 != undef and $prefix == undef  {
+    if $role_manifest4 == undef {
       $role4 = $role_name4
     } else {
       $role4 = "${role_name4}::${role_manifest4}"
     }
-  } elsif $role_name4 != '' {
-    if $role_manifest4 == '' {
+  } elsif $role_name4 != undef {
+    if $role_manifest4 == undef {
       $role4 = "${prefix}${separator}${role_name4}"
     } else {
       $role4 = "${prefix}${separator}${role_name4}::${role_manifest4}"
