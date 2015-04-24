@@ -6,14 +6,14 @@
 class role($prefix  = undef, $separator = '_' )
 {
   include stdlib
-  if $role_name1 != undef and $prefix == undef {
+  if $role_name1 != undef and $role_name1 != '' and $prefix == undef {
     if $role_manifest1 == undef {
       $role1 = $role_name1
     } else {
       $role1 = "${role_name1}::${role_manifest1}"
     }
-  } elsif $role_name1 != undef {
-    if $role_manifest1 == undef {
+  } elsif $role_name1 != undef and $role_name1 != '' {
+    if $role_manifest1 == undef and $role_manifest1 != '' {
       $role1 = "${prefix}${separator}${role_name1}"
     } else {
       $role1 = "${prefix}${separator}${role_name1}::${role_manifest1}"
