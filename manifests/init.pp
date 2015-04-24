@@ -36,14 +36,14 @@ class role($prefix  = undef, $separator = '_' )
   } else {
     $role2 = ''
   }
-  if $role_name3 != undef and $prefix == undef  {
-    if $role_manifest3 == undef {
+  if $role_name3 != undef and $role_name3 != '' and $prefix == undef  {
+    if $role_manifest3 == undef or $role_manifest3 == '' {
       $role3 = $role_name3
     } else {
       $role3 = "${role_name3}::${role_manifest3}"
     }
-  } elsif $role_name3 != undef {
-    if $role_manifest3 == undef {
+  } elsif $role_name3 != undef and $role_name3 != '' {
+    if $role_manifest3 == undef or $role_manifest3 == '' {
       $role3 = "${prefix}${separator}${role_name3}"
     } else {
       $role3 = "${prefix}${separator}${role_name3}::${role_manifest3}"
@@ -51,14 +51,14 @@ class role($prefix  = undef, $separator = '_' )
   } else {
     $role3 = ''
   }
-  if $role_name4 != undef and $prefix == undef  {
-    if $role_manifest4 == undef {
+  if $role_name4 != undef and $role_name4 != '' and $prefix == undef  {
+    if $role_manifest4 == undef or $role_manifest4 == '' {
       $role4 = $role_name4
     } else {
       $role4 = "${role_name4}::${role_manifest4}"
     }
-  } elsif $role_name4 != undef {
-    if $role_manifest4 == undef {
+  } elsif $role_name4 != undef and $role_name4 != ''  {
+    if $role_manifest4 == undef or $role_manifest4 == '' {
       $role4 = "${prefix}${separator}${role_name4}"
     } else {
       $role4 = "${prefix}${separator}${role_name4}::${role_manifest4}"
