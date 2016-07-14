@@ -98,6 +98,8 @@ hiera.yaml
       - "roles/%{role_name3}"
       - "roles/%{role_name4}"	
       - common 
+ 
+NOTE: In Puppet V4 hiera.yaml is stored with the environment so there will be separate hiera.yaml files for each environment. However the same hierarchy will apply and can be either shared with environments or kept separate for each environment if datadir is set to 'heiradata'.    
   
 site.pp (or whatever the initial manifest file is called)
 =========================================================
