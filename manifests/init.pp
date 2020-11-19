@@ -80,18 +80,15 @@ class role($prefix  = undef, $separator = '_' )
     $base_module = "${prefix}${separator}base"
     require $base_module
   }
-  if $role_name1 != '' {
+  if $role_name1 != undef and $role_name1 != '' {
     include $role1
   }
-  if $role_name2 != '' {
+  if $role_name2 != undef and $role_name2 != '' {
     include $role2
   }
-  if $role_name3 != '' {
+  if $role_name3 != undef and $role_name3 != '' {
     include $role3
   }
-  if $role_name4 != '' {
+  if $role_name4 != undef and $role_name4 != '' {
     include $role4
   }
-}
-
-}
